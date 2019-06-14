@@ -41,3 +41,17 @@ class GroupHelper:
     def return_to_groups_page(self):
         wb = self.app.wd
         wb.find_element_by_link_text("group page").click()
+
+    def mogify_first_group (self, editname):
+        wb = self.app.wd
+        self.open_group_page()
+        # select first group
+        wb.find_element_by_name("selected[]").click()
+        # submit edit
+        wb.find_element_by_name("edit").click()
+        # edit group name
+        wb.find_element_by_name("group_name").clear()
+        wb.find_element_by_name("group_name").send_keys(editname)
+        wb.find_element_by_name("update").click()
+        self.return_to_groups_page()
+

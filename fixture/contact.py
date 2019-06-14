@@ -35,3 +35,20 @@ class ContactHelper:
         wb.find_element_by_name("address2").send_keys(contact.address2)
         # submit
         wb.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+
+    def delete_first_contact (self):
+        wb = self.app.wd
+        # select first group
+        wb.find_element_by_name("selected[]").click()
+        # submit deletion
+        wb.find_element_by_xpath(" //div[2]//input[1]").click()
+        wb.switch_to_alert().accept()
+
+    def mogify_first_contact (self, editcompany):
+        wb = self.app.wd
+        # check first contact
+        wb.find_element_by_xpath("//tr[2]//td[8]//a[1]//img[1]").click()
+        # edit company
+        wb.find_element_by_name("company").clear()
+        wb.find_element_by_name("company").send_keys(editcompany)
+        wb.find_element_by_name("update").click()
