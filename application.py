@@ -35,18 +35,6 @@ class Application:
         wb.find_element_by_name("submit").click()
         self.return_to_groups_page()
 
-    def open_group_page(self):
-        wb = self.wd
-        wb.find_element_by_link_text("groups").click()
-
-    def open_home_page(self):
-        wb = self.wd
-        wb.get("http://localhost/addressbook/")
-
-    def return_to_groups_page(self):
-        wb = self.wd
-        wb.find_element_by_link_text("group page").click()
-
     def create_contact(self, contact):
         wb = self.wd
         # init new contact
@@ -76,6 +64,18 @@ class Application:
         wb.find_element_by_name("address2").send_keys(contact.address2)
         # submit
         wb.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+
+    def open_group_page(self):
+        wb = self.wd
+        wb.find_element_by_link_text("groups").click()
+
+    def open_home_page(self):
+        wb = self.wd
+        wb.get("http://localhost/addressbook/")
+
+    def return_to_groups_page(self):
+        wb = self.wd
+        wb.find_element_by_link_text("group page").click()
 
     def logout(self):
         wd = self.wd
