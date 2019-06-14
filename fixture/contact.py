@@ -1,0 +1,37 @@
+
+
+class ContactHelper:
+
+    def __init__ (self, app):
+        self.app = app
+
+
+    def create(self, contact):
+        wb = self.app.wd
+        # init new contact
+        wb.find_element_by_link_text("add new").click()
+        # fill contact form
+        wb.find_element_by_name("firstname").click()
+        wb.find_element_by_name("firstname").clear()
+        wb.find_element_by_name("firstname").send_keys(contact.firstname)
+        wb.find_element_by_name("lastname").clear()
+        wb.find_element_by_name("lastname").send_keys(contact.lastname)
+        wb.find_element_by_name("nickname").click()
+        wb.find_element_by_name("nickname").clear()
+        wb.find_element_by_name("nickname").send_keys(contact.nickname)
+        wb.find_element_by_name("address").click()
+        wb.find_element_by_name("address").clear()
+        wb.find_element_by_name("address").send_keys(contact.address)
+        wb.find_element_by_name("home").click()
+        wb.find_element_by_name("home").clear()
+        wb.find_element_by_name("home").send_keys(contact.homephone)
+        wb.find_element_by_name("mobile").clear()
+        wb.find_element_by_name("mobile").send_keys(contact.mobilephone)
+        wb.find_element_by_name("email").click()
+        wb.find_element_by_name("email").clear()
+        wb.find_element_by_name("email").send_keys(contact.mail)
+        wb.find_element_by_name("address2").click()
+        wb.find_element_by_name("address2").clear()
+        wb.find_element_by_name("address2").send_keys(contact.address2)
+        # submit
+        wb.find_element_by_xpath("(//input[@name='submit'])[2]").click()
