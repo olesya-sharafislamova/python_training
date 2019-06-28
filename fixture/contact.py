@@ -52,3 +52,7 @@ class ContactHelper:
         wb.find_element_by_name("company").clear()
         wb.find_element_by_name("company").send_keys(editcompany)
         wb.find_element_by_name("update").click()
+
+    def count(self):
+        wb = self.app.wd
+        return len (wb.find_elements_by_name("selected[]"))
