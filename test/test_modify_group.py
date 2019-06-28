@@ -1,6 +1,9 @@
 
+from model.group import Group
 
-def test_mogify_first_group(app):
-    app.session.login(username="admin", password="secret")
-    app.group.mogify_first_group(editname = "newname")
-    app.session.logout()
+def test_mogify_group_name(app):
+    app.group.mogify_first_group(Group(name = "new group"))
+
+
+def test_mogify_group_header(app):
+    app.group.mogify_first_group(Group(header = "new header"))
