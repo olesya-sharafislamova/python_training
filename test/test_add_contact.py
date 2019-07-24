@@ -34,6 +34,7 @@ testdata = [
             address2=random_string("address2", 10),
             phone2=random_string_for_phone("+7", 10),
             notes=random_string("notes", 20))
+    for i in range(5)
 ]
 
 @pytest.mark.parametrize("contact", testdata, ids=[repr(x) for x in testdata])
