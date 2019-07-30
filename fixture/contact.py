@@ -12,6 +12,13 @@ class ContactHelper:
         wd = self.app.wd
         # init new contact
         wd.find_element_by_link_text("add new").click()
+        self.fill_contact_form(contact)
+        # submit
+        wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+        self.contact_cache = None
+
+    def fill_contact_form(self, contact):
+        wd = self.app.wd
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -56,9 +63,6 @@ class ContactHelper:
         wd.find_element_by_name("notes").click()
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys(contact.notes)
-        # submit
-        wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
-        self.contact_cache = None
 
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
@@ -73,11 +77,31 @@ class ContactHelper:
         wd.find_element_by_css_selector("div.msgbox")
         self.contact_cache = None
 
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        # select contact
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+        # submit deletion
+        wd.find_element_by_xpath(" //div[2]//input[1]").click()
+        wd.switch_to_alert().accept()
+        wd.find_element_by_css_selector("div.msgbox")
+        self.contact_cache = None
+
     def modify_contact_by_index(self, firstname, index):
         wd = self.app.wd
         self.open_contact_page()
         # check contact
         wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+        # edit firstname
+        self.fill_contact_fields(firstname)
+        # submit contact creation
+        wd.find_element_by_name("update").click()
+        self.contact_cache = None
+
+    def modify_contact_by_id(self, id, firstname):
+        wd = self.app.wd
+        # check contact
+        self.open_contact_to_edit_by_id(id)
         # edit firstname
         self.fill_contact_fields(firstname)
         # submit contact creation
@@ -129,6 +153,13 @@ class ContactHelper:
         wd = self.app.wd
         self.open_contact_page()
         row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[7]
+        cell.find_element_by_tag_name("a").click()
+
+    def open_contact_to_edit_by_id(self, id):
+        wd = self.app.wd
+        self.open_contact_page()
+        row = wd.find_element_by_xpath("//tr[@name='entry']/td/input[@value='%s']/../.."%id)
         cell = row.find_elements_by_tag_name("td")[7]
         cell.find_element_by_tag_name("a").click()
 
