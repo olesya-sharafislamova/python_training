@@ -53,7 +53,7 @@ testdata = [
             address2=random_string("address2", 10),
             phone2=random_string_for_phone("+7", 10),
             notes=random_string("notes", 20))
-    for i in range(5)
+    for i in range(2)
 ]
 
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",f)
