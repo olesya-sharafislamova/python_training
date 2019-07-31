@@ -1,4 +1,4 @@
-
+from selenium.webdriver.support.select import Select
 from model.contact import Contact
 import re
 
@@ -80,12 +80,16 @@ class ContactHelper:
     def delete_contact_by_id(self, id):
         wd = self.app.wd
         # select contact
-        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+        self.select_contact_by_id(id)
         # submit deletion
         wd.find_element_by_xpath(" //div[2]//input[1]").click()
         wd.switch_to_alert().accept()
         wd.find_element_by_css_selector("div.msgbox")
         self.contact_cache = None
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
 
     def modify_contact_by_index(self, firstname, index):
         wd = self.app.wd
@@ -206,4 +210,28 @@ class ContactHelper:
         mobilephone=re.search("M: (.*)",text).group(1)
         phone2 = re.search("P: (.*)", text).group(1)
         return Contact(homephone=homephone, mobilephone=mobilephone,workphone=workphone, phone2=phone2)
+
+    def add_contact_in_group(self, contact_id, group_id):
+        wd = self.app.wd
+        self.open_contact_page()
+        # select contact
+        self.select_contact_by_id(contact_id)
+        # select group
+        wd.find_element_by_name("to_group").click()
+        Select(wd.find_element_by_css_selector("select[name=\"to_group\"]")).select_by_value('%s' % group_id)
+        # add contact in group
+        wd.find_element_by_name("add").click()
+
+    def delete_contact_from_group(self, group_id):
+        wd = self.app.wd
+        self.open_contact_page()
+        self.group_page_with_contact(group_id)
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//input[@name='remove']").click()
+
+    def group_page_with_contact(self, group_id):
+        wd = self.app.wd
+        wd.find_element_by_name("group").click()
+        Select(wd.find_element_by_css_selector("select[name=\"group\"]")).select_by_value('%s' % group_id)
+
 
