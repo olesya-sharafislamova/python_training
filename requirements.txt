@@ -6,4 +6,4 @@ pony
 pymysql
 mysql-connector-python-rf
 lxml-4.4.0-cp37-cp37m-win32.whl
-pytest-allure-adaptor
+pytest-allure-adaptor==1.7.5
