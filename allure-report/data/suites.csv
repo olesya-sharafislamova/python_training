@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Aug 05 21:03:52 GMT+03:00 2019","Mon Aug 05 21:03:53 GMT+03:00 2019","1157","test","test_add_group","","","","test_add_group[None:nameLH=!9;;header(;footer p+3Sw4EHDO?Xok~lG]",""
+"passed","Mon Aug 05 21:03:53 GMT+03:00 2019","Mon Aug 05 21:03:54 GMT+03:00 2019","1140","test","test_add_group","","","","test_add_group[None:nameT;header&A:c2:Q&_%+;(;footer}yD]",""
+"passed","Mon Aug 05 21:03:47 GMT+03:00 2019","Mon Aug 05 21:03:48 GMT+03:00 2019","1270","test","test_add_group","","","","test_add_group[None:;;]",""
+"passed","Mon Aug 05 21:03:51 GMT+03:00 2019","Mon Aug 05 21:03:52 GMT+03:00 2019","1178","test","test_add_group","","","","test_add_group[None:name(;.Z M;headerE;;1^;footer3(5vs""N18~omYV]",""
+"passed","Mon Aug 05 21:03:49 GMT+03:00 2019","Mon Aug 05 21:03:50 GMT+03:00 2019","1155","test","test_add_group","","","","test_add_group[None:name2;2M;header}Il ;;footer.fH,*}js>dMk8G- XK)]",""
+"passed","Mon Aug 05 21:03:48 GMT+03:00 2019","Mon Aug 05 21:03:49 GMT+03:00 2019","1187","test","test_add_group","","","","test_add_group[None:name ~5B;l2jv;header ;footer]",""

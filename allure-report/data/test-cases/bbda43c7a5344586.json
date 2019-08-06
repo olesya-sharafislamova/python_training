@@ -1,0 +1,101 @@
+{
+  "uid" : "bbda43c7a5344586",
+  "name" : "test_add_group[None:nameT;header&A:c2:Q&_%+;(;footer}yD]",
+  "fullName" : "test.test_add_group#test_add_group[None:nameT;header&A:c2:Q&_%+;(;footer}yD]",
+  "historyId" : "8e2e63424d94757f1d400ca1eb136e17",
+  "time" : {
+    "start" : 1565028055879,
+    "stop" : 1565028057086,
+    "duration" : 1207
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "app",
+    "time" : {
+      "start" : 1565028055783,
+      "stop" : 1565028055878,
+      "duration" : 95
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "db",
+    "time" : {
+      "start" : 1565028036078,
+      "stop" : 1565028036097,
+      "duration" : 19
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "db::fin",
+    "time" : {
+      "start" : 1565028057092,
+      "stop" : 1565028057092,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "test_add_group"
+  }, {
+    "name" : "subSuite"
+  }, {
+    "name" : "host",
+    "value" : "RU-MSK-TES-W162"
+  }, {
+    "name" : "thread",
+    "value" : "11480-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.test_add_group"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "json_groups",
+    "value" : "None:nameT;header&A:c2:Q&_%+;(;footer}yD"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "bbda43c7a5344586.json",
+  "parameterValues" : [ "None:nameT;header&A:c2:Q&_%+;(;footer}yD" ]
+}
