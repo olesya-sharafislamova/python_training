@@ -1,15 +1,17 @@
 import re
-
+import pytest
 
 
 def test_information_on_home_page_with_db(app, db):
-    ui_list = app.contact.get_contact_list()
-    for contact in ui_list:
-        assert contact.firstname == (db.get_contact_by_id(contact.id).firstname).strip()
-        assert contact.lastname == (db.get_contact_by_id(contact.id).lastname).strip()
-        assert contact.address == (db.get_contact_by_id(contact.id).address).strip()
-        assert contact.all_emails_from_home_page == all_emails_in_db(db.get_contact_by_id(contact.id))
-        assert contact.all_phones_from_home_page == all_phones_in_db(db.get_contact_by_id(contact.id))
+    with pytest.allure.step('Given ui list'):
+        ui_list = app.contact.get_contact_list()
+    with pytest.allure.step('Given check ui list with DB'):
+        for contact in ui_list:
+            assert contact.firstname == (db.get_contact_by_id(contact.id).firstname).strip()
+            assert contact.lastname == (db.get_contact_by_id(contact.id).lastname).strip()
+            assert contact.address == (db.get_contact_by_id(contact.id).address).strip()
+            assert contact.all_emails_from_home_page == all_emails_in_db(db.get_contact_by_id(contact.id))
+            assert contact.all_phones_from_home_page == all_phones_in_db(db.get_contact_by_id(contact.id))
 
 
 
